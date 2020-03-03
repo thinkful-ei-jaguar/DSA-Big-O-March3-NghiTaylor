@@ -6,8 +6,8 @@
 // 4. Doubler - O(n) Reads value of array only once each.
 // 5. Naive Search - O(n) Reads once for each index in array to find the item
 // 6. Creating pairs - O(n^2) Nested for loops, which means that the index of the outer loop will run through every index of the inner loop.
-// 7. Compute the sequence - O()
-// 8. An efficient search - O()
+// 7. Compute the sequence - O(n) cause no matter how big of a numbner input, the program has to itterate once for every preceding number and excute only one statment. 
+// 8. An efficient search - O(log(n)) regardless of the input size of the array we're always cutting the array into halves to find the item.
 // 9. Random element - O()
 // 10. What Am I? - O()
 // 11. Tower of Hanoi - O()
