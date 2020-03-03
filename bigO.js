@@ -32,21 +32,34 @@ function TowerofHanoi(num, source, dest, temp) {
     Print(source, dest)
   }
   if(num === 2) {
-    Print(source, temp)
     Print(source, dest)
+    Print(temp, source)
+    Print(temp, dest)
     TowerofHanoi(num-1, source, dest, temp)
   }
-  else if(num % 2 !== 0) {
-    Print(source, dest) 
+  while (num > 2) {
+    Print(source, dest)
     Print(source, temp)
-    TowerofHanoi(num-1, source, temp, dest)
-  }
-  else if(num%2 === 0) {
-    Print(source, temp)
-    Print(dest, source)
     Print(dest, temp)
     TowerofHanoi(num-1, source, dest, temp)
   }
+
+  //  if (num === 2) {
+  //   Print(source, temp)
+  //   Print(source, dest)
+  //   TowerofHanoi(num-1, source, dest, temp)
+  // }
+  // else if(num % 2 !== 0) {
+  //   Print(source, dest) 
+  //   Print(source, temp)
+  //   TowerofHanoi(num-1, source, temp, dest)
+  // }
+  // else if(num%2 === 0) {
+  //   Print(source, temp)
+  //   Print(dest, source)
+  //   Print(dest, temp)
+  //   TowerofHanoi(num-1, source, dest, temp)
+  // }
 }
 
 function Print(a,b) {
@@ -56,8 +69,8 @@ function Print(a,b) {
 TowerofHanoi(3, A, C, B) //first call //3 moves
 A->B //A->C
 A->C //A->B
-
 B->A //C->B
+
 B->C //A->C
 TowerofHanoi(2, A, B, C) //recursive //3 moves (6)
 //Tower call order (B = source, A= temp, C=dest) for (num <=2)
@@ -72,34 +85,49 @@ TowerofHanoi(1, A, C, B) //1 move (7)
 // B->C
 
 /** 4-discs
- * A->C
  * A->B
- * C->B
  * A->C
- * B->A
  * B->C
- * A->C
+ * A->B
+ * C->A
+ * C->B
+ * A->B
  * -----3 smallest on C
- * A->B
- * C->A
- * C->B
- * A->B
- * C->A
+ * A->C
+ * B->C
  * B->A
+ * C->A
  * B->C
  * A->B
- * C->A
- * B->A
+ * A->C
  * B->C
- * A->C
- * A->B
- * C->B
- * A->C
- * B->A
- * B->C
- * A->C
- * 
  */
 
-// 12. Iterative version - O()
+// 12. Iterative version
+  //1. coutning sheep-
+    const countSheep = (num) => {
+      for (let i=num; i>=0; i--) {
+        if(i === 0) {
+          console.log('All the sheep over the fence')
+        } 
+        console.log('Another sheep jumps obver the fence')
+      }
+    }
+  //2. Power Calc-
+  const powerCalc = (base, exp) => {
+    let result = 1;
+    if(exp<0) {
+      return 'exponent should be >= 0';
+    }
+    for(let i=0; i<exp; i++) {
+      result *= base
+    }
+    return result;
+  }
+  //3. reverse string-
+  //4. nth triangle-
+  //5. string splitter-
+  //6. fibonacci-
+  //7. factorial-
+
 // 13. Recursive Big O - O()
