@@ -9,7 +9,7 @@
 // 7. Compute the sequence - O(n) cause no matter how big of a numbner input, the program has to itterate once for every preceding number and excute only one statment.
 // 8. An efficient search - O(log(n)) regardless of the input size of the array we're always cutting the array into halves to find the item.
 // 9. Random element - O(1) Regardless of the input size of the array, the program will always return 1 random number from the array.
-// 10. What Am I? - O(n)
+// 10. What Am I? - O(n) Moves through the for loop, at a approx. constant rate until the conditions are satisfied.
 // 11. Tower of Hanoi - O()
 
 // Input/Output
@@ -26,13 +26,80 @@
 // Always check for location of disk 1
 // Checking if Rod C is empty, if so move the smallest disk there
 
-// function TowerofHanoi(num) {
-//   let board = [[],
-//   [],
-// ];
-//   // base
-//   if ()
-// }
+function TowerofHanoi(num, source, dest, temp) {
+  // base
+  if (num === 1) {
+    Print(source, dest)
+  }
+  if(num === 2) {
+    Print(source, temp)
+    Print(source, dest)
+    TowerofHanoi(num-1, source, dest, temp)
+  }
+  else if(num % 2 !== 0) {
+    Print(source, dest) 
+    Print(source, temp)
+    TowerofHanoi(num-1, source, temp, dest)
+  }
+  else if(num%2 === 0) {
+    Print(source, temp)
+    Print(dest, source)
+    Print(dest, temp)
+    TowerofHanoi(num-1, source, dest, temp)
+  }
+}
+
+function Print(a,b) {
+  console.log(`moved ${a} to ${b}`)
+}
+
+TowerofHanoi(3, A, C, B) //first call //3 moves
+A->B //A->C
+A->C //A->B
+
+B->A //C->B
+B->C //A->C
+TowerofHanoi(2, A, B, C) //recursive //3 moves (6)
+//Tower call order (B = source, A= temp, C=dest) for (num <=2)
+A->C //B->A
+     //B->C
+TowerofHanoi(1, A, C, B) //1 move (7)
+     //A->C
+
+//example 2-disk -->> 
+// A->B
+// A->C
+// B->C
+
+/** 4-discs
+ * A->C
+ * A->B
+ * C->B
+ * A->C
+ * B->A
+ * B->C
+ * A->C
+ * -----3 smallest on C
+ * A->B
+ * C->A
+ * C->B
+ * A->B
+ * C->A
+ * B->A
+ * B->C
+ * A->B
+ * C->A
+ * B->A
+ * B->C
+ * A->C
+ * A->B
+ * C->B
+ * A->C
+ * B->A
+ * B->C
+ * A->C
+ * 
+ */
 
 // 12. Iterative version - O()
 // 13. Recursive Big O - O()
