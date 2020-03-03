@@ -1,17 +1,17 @@
 // 1. What is the Big O for this?
-// 1a) O(1) - Regardless of how many dog owners there are in the room, we yell once to inquire and we get 1 reply
-// 1b) O(n) - We have to ask each dog owner until we find a matching breed dog owner. Worst case is we have to ask every single dog owner.
-// 2. Even or odd - O(1) Even or odd, 1 boolean value has to return.
-// 3. Are you here? - O(n^2) Nested for loops, which means that the outer array will run thorugh the inner array for every element in the first array.
-// 4. Doubler - O(n) Reads value of array only once each.
-// 5. Naive Search - O(n) Reads once for each index in array to find the item
-// 6. Creating pairs - O(n^2) Nested for loops, which means that the index of the outer loop will run through every index of the inner loop.
-// 7. Compute the sequence - O(n) cause no matter how big of a numbner input, the program has to itterate once for every preceding number and excute only one statment.
-// 8. An efficient search - O(log(n)) regardless of the input size of the array we're always cutting the array into halves to find the item.
-// 9. Random element - O(1) Regardless of the input size of the array, the program will always return 1 random number from the array.
-// 10. What Am I? - O(n) Moves through the for loop, at a approx. constant rate until the conditions are satisfied.
-// 11. Tower of Hanoi - O()
+// 1a) The big O is the task to stand up and yell out the inquiry.
+// 1b) The big O is having to ask all breed owners until we found a matching breed.
+// 2. The big O is checking to see if a value is even. If so, then return true and else false.
+// 3. The big O is we have to check each index in the first array whether it matches any number in the 2nd array.
+// 4. The big O is we have to multiply all numbers in the provided array.
+// 5. The big O is we have to look through every number in the array to find the item being searched.
+// 6. The big O is printing out 2 consecutive items of the array until the array ends and as many times as the length of the array.
+// 7. The big O is pushing 1 generated number into an array as many times as the input number.
+// 8. The big O is diving array a number of times to find the item being searched.
+// 9. The big O is returning a random item in an array.
+// 10. The big O is running the for loop until we find what the input number is divisible by.
 
+// 11. Tower of Hanoi - O()
 // Input/Output
 // (3) => moved disk 1 to Rod C
 // => moved disk 2 to Rod B
@@ -104,7 +104,7 @@ function Print(a, b) {
  */
 
 // 12. Iterative version
-//1. coutning sheep-
+//1. counting sheep-
 const countSheep = num => {
   for (let i = num; i >= 0; i--) {
     if (i === 0) {
@@ -128,7 +128,7 @@ const powerCalc = (base, exp) => {
 };
 //console.log(powerCalc(100, 2));
 
-//3. reverse string-
+//3. Reverse string-
 const reverseStr = str => {
   let result = "";
   for (let i = str.length - 1; i >= 0; i--) {
@@ -146,41 +146,57 @@ const triangle = num => {
   }
   return result;
 };
-console.log(triangle(9));
+// console.log(triangle(9));
 
 //5. string splitter-
 const splitter = (str, split) => {
   let result = [];
   let rest = str;
-  while(rest.includes(split)) {
-    let idx =rest.indexOf(split)
+  while (rest.includes(split)) {
+    let idx = rest.indexOf(split);
     let first = rest.slice(0, idx);
-    rest = rest.slice(idx+1)
-    result.push(first)
+    rest = rest.slice(idx + 1);
+    result.push(first);
   }
-  if(rest.length){
-    result.push(rest)
-  }
-  return result
-}
-
-console.log(splitter('02/20/2020', '/'))
-//6. fibonacci-
-const fib = (num) => {
-  let result = [1, 1];
-  // if(num <= 2) {
-  //   for (let i=1; i<=num; i++) {
-  //     result.push(1)
-  //   }
-  //   return result;
-  // }
-  for(let i=2; i<num; i++) {
-    result.push(result[i-1]+result[i-2])
+  if (rest.length) {
+    result.push(rest);
   }
   return result;
-}
+};
 
-console.log(fib(7))
+// console.log(splitter("02/20/2020", "/"));
+//6. fibonacci-
+const fib = num => {
+  let result = [1, 1];
+  for (let i = 2; i < num; i++) {
+    result.push(result[i - 1] + result[i - 2]);
+  }
+  return result[result.length - 1];
+};
+
+//console.log(fib(7));
 //7. factorial-
+const fact = num => {
+  let result = 1;
+  for (let i = 1; i <= num; i++) {
+    result *= i;
+  }
+  return result;
+};
 
-// 13. Recursive Big O - O()
+console.log(fact(5));
+
+// 13. Recursive Big O - They're all linear time. The time complexity increases with the size of input.
+
+// 14. Iterative Big O -
+// 1a) O(1) - Regardless of how many dog owners there are in the room, we yell once to inquire and we get 1 reply
+// 1b) O(n) - We have to ask each dog owner until we find a matching breed dog owner. Worst case is we have to ask every single dog owner.
+// 2. Even or odd - O(1) Even or odd, 1 boolean value has to return.
+// 3. Are you here? - O(n^2) Nested for loops, which means that the outer array will run thorugh the inner array for every element in the first array.
+// 4. Doubler - O(n) Reads value of array only once each.
+// 5. Naive Search - O(n) Reads once for each index in array to find the item
+// 6. Creating pairs - O(n^2) Nested for loops, which means that the index of the outer loop will run through every index of the inner loop.
+// 7. Compute the sequence - O(n) cause no matter how big of a numbner input, the program has to itterate once for every preceding number and excute only one statment.
+// 8. An efficient search - O(log(n)) regardless of the input size of the array we're always cutting the array into halves to find the item.
+// 9. Random element - O(1) Regardless of the input size of the array, the program will always return 1 random number from the array.
+// 10. What Am I? - O(n) Moves through the for loop, at a approx. constant rate until the conditions are satisfied.
