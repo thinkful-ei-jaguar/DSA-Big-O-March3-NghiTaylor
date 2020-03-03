@@ -29,19 +29,19 @@
 function TowerofHanoi(num, source, dest, temp) {
   // base
   if (num === 1) {
-    Print(source, dest)
+    Print(source, dest);
   }
-  if(num === 2) {
-    Print(source, dest)
-    Print(temp, source)
-    Print(temp, dest)
-    TowerofHanoi(num-1, source, dest, temp)
+  if (num === 2) {
+    Print(source, dest);
+    Print(temp, source);
+    Print(temp, dest);
+    TowerofHanoi(num - 1, source, dest, temp);
   }
   while (num > 2) {
-    Print(source, dest)
-    Print(source, temp)
-    Print(dest, temp)
-    TowerofHanoi(num-1, source, dest, temp)
+    Print(source, dest);
+    Print(source, temp);
+    Print(dest, temp);
+    TowerofHanoi(num - 1, source, dest, temp);
   }
 
   //  if (num === 2) {
@@ -50,7 +50,7 @@ function TowerofHanoi(num, source, dest, temp) {
   //   TowerofHanoi(num-1, source, dest, temp)
   // }
   // else if(num % 2 !== 0) {
-  //   Print(source, dest) 
+  //   Print(source, dest)
   //   Print(source, temp)
   //   TowerofHanoi(num-1, source, temp, dest)
   // }
@@ -62,24 +62,24 @@ function TowerofHanoi(num, source, dest, temp) {
   // }
 }
 
-function Print(a,b) {
-  console.log(`moved ${a} to ${b}`)
+function Print(a, b) {
+  console.log(`moved ${a} to ${b}`);
 }
 
-TowerofHanoi(3, A, C, B) //first call //3 moves
-A->B //A->C
-A->C //A->B
-B->A //C->B
+// TowerofHanoi(3, A, C, B) //first call //3 moves
+// A->B //A->C
+// A->C //A->B
+// B->A //C->B
 
-B->C //A->C
-TowerofHanoi(2, A, B, C) //recursive //3 moves (6)
-//Tower call order (B = source, A= temp, C=dest) for (num <=2)
-A->C //B->A
-     //B->C
-TowerofHanoi(1, A, C, B) //1 move (7)
-     //A->C
+// B->C //A->C
+// TowerofHanoi(2, A, B, C) //recursive //3 moves (6)
+// //Tower call order (B = source, A= temp, C=dest) for (num <=2)
+// A->C //B->A
+//      //B->C
+// TowerofHanoi(1, A, C, B) //1 move (7)
+//      //A->C
 
-//example 2-disk -->> 
+//example 2-disk -->>
 // A->B
 // A->C
 // B->C
@@ -104,30 +104,52 @@ TowerofHanoi(1, A, C, B) //1 move (7)
  */
 
 // 12. Iterative version
-  //1. coutning sheep-
-    const countSheep = (num) => {
-      for (let i=num; i>=0; i--) {
-        if(i === 0) {
-          console.log('All the sheep over the fence')
-        } 
-        console.log('Another sheep jumps obver the fence')
-      }
+//1. coutning sheep-
+const countSheep = num => {
+  for (let i = num; i >= 0; i--) {
+    if (i === 0) {
+      return "All the sheep over the fence";
     }
-  //2. Power Calc-
-  const powerCalc = (base, exp) => {
-    let result = 1;
-    if(exp<0) {
-      return 'exponent should be >= 0';
-    }
-    for(let i=0; i<exp; i++) {
-      result *= base
-    }
-    return result;
+    return "Another sheep jumps over the fence";
   }
-  //3. reverse string-
-  //4. nth triangle-
-  //5. string splitter-
-  //6. fibonacci-
-  //7. factorial-
+};
+// console.log(countSheep(3));
+
+//2. Power Calc-
+const powerCalc = (base, exp) => {
+  let result = 1;
+  if (exp < 0) {
+    return "exponent should be >= 0";
+  }
+  for (let i = 0; i < exp; i++) {
+    result *= base;
+  }
+  return result;
+};
+//console.log(powerCalc(100, 2));
+
+//3. reverse string-
+const reverseStr = str => {
+  let result = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    result += str[i];
+  }
+  return result;
+};
+// console.log(reverseStr("hello"));
+
+//4. nth triangle-
+const triangle = num => {
+  let result = 0;
+  for (let i = 1; i <= num; i++) {
+    result += i;
+  }
+  return result;
+};
+console.log(triangle(9));
+
+//5. string splitter-
+//6. fibonacci-
+//7. factorial-
 
 // 13. Recursive Big O - O()
