@@ -149,7 +149,38 @@ const triangle = num => {
 console.log(triangle(9));
 
 //5. string splitter-
+const splitter = (str, split) => {
+  let result = [];
+  let rest = str;
+  while(rest.includes(split)) {
+    let idx =rest.indexOf(split)
+    let first = rest.slice(0, idx);
+    rest = rest.slice(idx+1)
+    result.push(first)
+  }
+  if(rest.length){
+    result.push(rest)
+  }
+  return result
+}
+
+console.log(splitter('02/20/2020', '/'))
 //6. fibonacci-
+const fib = (num) => {
+  let result = [1, 1];
+  // if(num <= 2) {
+  //   for (let i=1; i<=num; i++) {
+  //     result.push(1)
+  //   }
+  //   return result;
+  // }
+  for(let i=2; i<num; i++) {
+    result.push(result[i-1]+result[i-2])
+  }
+  return result;
+}
+
+console.log(fib(7))
 //7. factorial-
 
 // 13. Recursive Big O - O()
